@@ -35,3 +35,8 @@ data class PokemonModel(
     val name: String,
     val imageUrl: String
 )
+
+data class VersionGroupDetail(
+    val name: String,
+    val generation: NamedApiResource
+)
