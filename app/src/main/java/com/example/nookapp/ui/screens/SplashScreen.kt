@@ -24,25 +24,22 @@ import com.example.nookapp.R
 
 @Composable
 fun SplashScreen(onNavigateToHome: () -> Unit) {
-    // 1. Configuramos la animación infinita
     val infiniteTransition = rememberInfiniteTransition(label = "spin")
     val angle by infiniteTransition.animateFloat(
         initialValue = 0f,
         targetValue = 360f,
         animationSpec = infiniteRepeatable(
-            animation = tween(1500, easing = LinearEasing), // Da una vuelta cada 1.5 segundos
+            animation = tween(1500, easing = LinearEasing),
             repeatMode = RepeatMode.Restart
         ),
         label = "spinAngle"
     )
 
-    // 2. Controlamos el tiempo que dura la pantalla de carga (ej. 3 segundos)
     LaunchedEffect(key1 = true) {
-        delay(3000) // Aquí también podrías esperar a que el ViewModel cargue los datos iniciales
+        delay(3000)
         onNavigateToHome()
     }
 
-    // 3. Diseño de la pantalla (Nombre, Logo giratorio, Diseño propio)
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center

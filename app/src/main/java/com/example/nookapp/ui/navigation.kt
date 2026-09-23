@@ -11,4 +11,12 @@ package com.example.nookapp.ui
 sealed class AppScreens(val route: String) {
     object Splash : AppScreens("splash_screen")
     object Home : AppScreens("home_screen")
+
+    object Pokedex : AppScreens("pokedex_screen")
+    object Games : AppScreens("games_screen")
+    object Berries : AppScreens("berries_screen")
+
+    object PokemonDetail : AppScreens("pokemon_detail_screen/{pokemonName}") {
+        fun createRoute(pokemonName: String) = "pokemon_detail_screen/$pokemonName"
+    }
 }

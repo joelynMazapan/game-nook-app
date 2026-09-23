@@ -34,6 +34,9 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.material3)
+    implementation(libs.androidx.ui)
     val nav_version = "2.10.1"
 
     implementation("androidx.navigation:navigation-compose:${nav_version}")
@@ -52,7 +55,9 @@ dependencies {
     androidTestImplementation("androidx.navigation:navigation-testing:$nav_version")
 
     // JSON serialization library, works with the Kotlin serialization plugin
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.11.0")
+
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
@@ -62,6 +67,10 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.gson)
+    implementation(libs.coil.compose)
+
     testImplementation(libs.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
