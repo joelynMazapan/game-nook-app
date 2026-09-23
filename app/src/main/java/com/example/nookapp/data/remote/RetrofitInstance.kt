@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 object RetrofitInstance {
-    private const val BASE_URL = "https://pokeapi.co/api/v2/"
+    private const val BASE_URL = "https://pokeapi.co/api/v2"
 
     val api: PokeApiService by lazy {
         Retrofit.Builder()
