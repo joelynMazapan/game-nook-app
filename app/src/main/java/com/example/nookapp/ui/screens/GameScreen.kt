@@ -60,7 +60,6 @@ fun GamesScreen(
             )
         }
     ) { paddingValues ->
-        // Todo va dentro de este Column
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -80,7 +79,7 @@ fun GamesScreen(
                 items(games) { game ->
                     GameCard(
                         game = game,
-                        onClick = { onGameClick(game) }
+                        onClick = { onGameClick(game) } // <-- Pasamos el clic a la tarjeta
                     )
                 }
             }

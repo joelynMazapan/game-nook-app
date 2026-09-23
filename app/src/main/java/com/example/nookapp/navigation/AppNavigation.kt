@@ -93,7 +93,10 @@ fun AppNavigation() {
                         games = filtered,
                         searchQuery = searchText,
                         onSearchQueryChange = { searchText = it },
-                        onNavigateBack = { navController.popBackStack() }
+                        onNavigateBack = { navController.popBackStack() },
+                        onGameClick = { selectedGame -> // <-- Agregamos el evento de clic en inglés
+                            navController.navigate(AppScreens.GameDetail.createRoute(selectedGame.name))
+                        }
                     )
                 }
             }
