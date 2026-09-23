@@ -13,6 +13,7 @@ import com.example.nookapp.data.models.GameModel
 import com.example.nookapp.data.models.PokemonModel
 import com.example.nookapp.ui.AppScreens
 import com.example.nookapp.ui.screens.BerriesScreen
+import com.example.nookapp.ui.screens.GameDetailScreen
 import com.example.nookapp.ui.screens.GamesScreen
 import com.example.nookapp.ui.screens.HomeScreen
 import com.example.nookapp.ui.screens.PokedexScreen
@@ -96,11 +97,8 @@ fun AppNavigation() {
             }
         }
 
-
-
         composable(AppScreens.Games.route) {
             var searchText by remember { mutableStateOf("") }
-
             val mockGames = listOf(
                 GameModel("Pokémon Rubí", "III"),
                 GameModel("Pokémon Zafiro", "III"),
@@ -116,8 +114,31 @@ fun AppNavigation() {
                 games = filteredGames,
                 searchQuery = searchText,
                 onSearchQueryChange = { newText -> searchText = newText },
-                onNavigateBack = { navController.popBackStack() }
+                onNavigateBack = { navController.popBackStack() },
+                onGameClick = { selectedGame ->
+                    navController.navigate(AppScreens.GameDetail.createRoute(selectedGame.name))
+                }
             )
+        }
+
+        composable(AppScreens.GameDetail.route) { backStackEntry ->
+            val gameName = backStackEntry.arguments?.getString("gameName")
+
+            val mockGames = listOf(
+                GameModel("Pokémon Rubí", "III"),
+                GameModel("Pokémon Zafiro", "III"),
+                GameModel("Pokémon Esmeralda", "III"),
+                GameModel("Pokémon Mundo Misterioso: Equipo de Rescate Rojo", "III")
+            )
+
+            val selectedGame = mockGames.find { it.name == gameName }
+
+            if (selectedGame != null) {
+                GameDetailScreen(
+                    game = selectedGame,
+                    onNavigateBack = { navController.popBackStack() }
+                )
+            }
         }
 
         composable(AppScreens.Berries.route) {

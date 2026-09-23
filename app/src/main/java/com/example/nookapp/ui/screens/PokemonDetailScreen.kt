@@ -32,7 +32,12 @@ fun PokemonDetailScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(pokemon.name.replaceFirstChar { it.uppercase() }, fontWeight = FontWeight.Bold) },
+                title = {
+                    Text(
+                        pokemon.name.replaceFirstChar { it.uppercase() },
+                        fontWeight = FontWeight.Bold
+                    )
+                },
                 navigationIcon = {
                     IconButton(onClick = onNavigateBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Regresar")
@@ -57,7 +62,10 @@ fun PokemonDetailScreen(
             Box(
                 modifier = Modifier
                     .size(220.dp)
-                    .background(Color.LightGray.copy(alpha = 0.3f), shape = RoundedCornerShape(110.dp)),
+                    .background(
+                        Color.LightGray.copy(alpha = 0.3f),
+                        shape = RoundedCornerShape(110.dp)
+                    ),
                 contentAlignment = Alignment.Center
             ) {
                 AsyncImage(
@@ -100,15 +108,15 @@ fun PokemonDetailScreen(
                     ) {
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             Text("Peso", fontWeight = FontWeight.Bold)
-                            Text("6.9 kg") // Dato duro temporal hasta tener la API
+                            Text("6.9 kg")
                         }
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             Text("Tipo", fontWeight = FontWeight.Bold)
-                            Text("Planta") // Dato duro temporal
+                            Text("Planta")
                         }
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
                             Text("Altura", fontWeight = FontWeight.Bold)
-                            Text("0.7 m") // Dato duro temporal
+                            Text("0.7 m")
                         }
                     }
                 }

@@ -19,4 +19,8 @@ sealed class AppScreens(val route: String) {
     object PokemonDetail : AppScreens("pokemon_detail_screen/{pokemonName}") {
         fun createRoute(pokemonName: String) = "pokemon_detail_screen/$pokemonName"
     }
+
+    object GameDetail : AppScreens("game_detail_screen/{gameName}") {
+        fun createRoute(gameName: String) = "game_detail_screen/$gameName"
+    }
 }

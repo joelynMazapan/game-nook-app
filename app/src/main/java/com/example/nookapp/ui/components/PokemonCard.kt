@@ -32,7 +32,6 @@ import com.example.nookapp.data.models.PokemonModel
  * All rights reserved: 2026
  */
 
-// AQUÍ VA EXACTAMENTE: Agregamos onClick: () -> Unit
 @Composable
 fun PokemonCard(pokemon: PokemonModel, onClick: () -> Unit) {
     Card(

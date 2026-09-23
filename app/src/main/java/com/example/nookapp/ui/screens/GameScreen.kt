@@ -38,8 +38,9 @@ import com.example.nookapp.ui.components.CustomSearchBar
 @Composable
 fun GamesScreen(
     games: List<GameModel>,
-    searchQuery: String, // <-- Nuevo
-    onSearchQueryChange: (String) -> Unit, // <-- Nuevo
+    searchQuery: String,
+    onSearchQueryChange: (String) -> Unit,
+    onGameClick: (GameModel) -> Unit,
     onNavigateBack: () -> Unit
 ) {
     Scaffold(
@@ -74,10 +75,13 @@ fun GamesScreen(
             LazyColumn(
                 contentPadding = PaddingValues(16.dp),
                 verticalArrangement = Arrangement.spacedBy(12.dp),
-                modifier = Modifier.fillMaxSize() // <-- Sin paddingValues aquí
+                modifier = Modifier.fillMaxSize()
             ) {
                 items(games) { game ->
-                    GameCard(game = game)
+                    GameCard(
+                        game = game,
+                        onClick = { onGameClick(game) }
+                    )
                 }
             }
         }
